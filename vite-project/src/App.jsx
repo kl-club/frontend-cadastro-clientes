@@ -1,9 +1,3 @@
-function App() {
-  return (
-    <div className="App">
-      <h1>Cadastro de Clientes</h1>
-    </div>
-  )
+export default function App() {
+  return <main style={{ padding: 24 }}>KL Club – cadastro (em construção)</main>;
 }
-
-export default App
