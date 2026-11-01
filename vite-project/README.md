@@ -1,16 +1,23 @@
-# React + Vite
+# KL Club – Cadastro de Perfil (MVVM)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+```bash
+npm install
+npm run dev:all        # json-server (3001) + vite (5173)
+```
 
-Currently, two official plugins are available:
+Abra: http://localhost:5173/cadastro?token=kl-demo-123
+(token `kl-expirado` simula QR Code inválido)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Estrutura MVVM
+- `src/model`     → entidades/validações, services e axios (get, post, put, delete)
+- `src/viewmodel` → `useRegistrationViewModel` (estado + regras do fluxo)
+- `src/view`      → componentes, etapas e página (JSX + CSS Modules)
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Endpoints (json-server / db.json)
+| Ação | Método | Rota |
+|---|---|---|
+| Validar QR | GET | /qrSessions?token= |
+| Buscar CPF | GET | /users?cpf= |
+| Criar rascunho (etapa 1) | POST | /users |
+| Salvar nome/telefone | PUT | /users/:id |
+| Alterar CPF (descarta rascunho) | DELETE | /users/:id |
