@@ -1,0 +1,15 @@
+.page { min-height: 100dvh; display: flex; justify-content: center; align-items: stretch; background: var(--bg); padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+.shell { width: 100%; max-width: 440px; display: flex; flex-direction: column; gap: 16px; padding: 4px clamp(16px, 5vw, 24px) 24px; animation: enter 0.25s ease-out; }
+.state { text-align: center; color: var(--muted); font-size: 0.9rem; margin: 0; }
+.stateTitle { margin: 0; text-align: center; font-size: 1.15rem; }
+
+@keyframes enter { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .shell { animation: none; } }
+
+/* Tablet / desktop: coluna centralizada com cantos arredondados */
+@media (min-width: 640px) {
+  .page { align-items: center; padding-block: 32px; background: radial-gradient(circle at 20% 0%, #e2eedf, var(--bg) 60%); }
+  .shell { background: #f7faf5; border-radius: 28px; box-shadow: 0 20px 60px rgba(16, 60, 36, 0.12); padding-block: 16px 32px; max-width: 480px; }
+}
+/* Celular na horizontal */
+@media (max-height: 520px) { .shell { gap: 10px; } }
