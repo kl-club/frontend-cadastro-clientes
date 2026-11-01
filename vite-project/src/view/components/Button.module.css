@@ -1,0 +1,10 @@
+.btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 52px; border-radius: 12px; font-weight: 700; font-size: 0.95rem; color: #fff; transition: background 0.2s, transform 0.1s; }
+.btn:active:not(:disabled) { transform: scale(0.99); }
+.primary { background: var(--green-800); }
+.primary:hover:not(:disabled) { background: var(--green-900); }
+.primary:disabled { background: #93bda5; color: #e9f4ec; cursor: not-allowed; }
+.link { min-height: 40px; background: transparent; color: var(--ink); font-weight: 500; font-size: 0.82rem; }
+.link:hover { text-decoration: underline; }
+.spinner { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid rgba(255, 255, 255, 0.4); border-top-color: #fff; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 2s; } }

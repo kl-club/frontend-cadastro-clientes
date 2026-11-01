@@ -1,0 +1,6 @@
+.wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; }
+.labels { display: flex; justify-content: space-between; font-size: 0.68rem; font-weight: 700; color: var(--green-900); }
+.right { font-weight: 500; color: var(--green-600); }
+.bars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.bars span { height: 4px; border-radius: 4px; background: #d3e0d3; transition: background 0.3s; }
+.bars .on { background: var(--green-800); }
