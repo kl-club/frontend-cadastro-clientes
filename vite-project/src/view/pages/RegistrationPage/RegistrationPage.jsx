@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useRegistrationViewModel } from '../../../viewmodel/useRegistrationViewModel';
 import StepCpf from '../../steps/StepCpf';
 import StepName from '../../steps/StepName';
+import StepPhone from '../../steps/StepPhone';
 import Card from '../../components/Card';
 import styles from './RegistrationPage.module.css';
 
@@ -29,6 +30,7 @@ export default function RegistrationPage() {
     const steps = {
       1: <StepCpf vm={vm} onExit={exit} />,
       2: <StepName vm={vm} />,
+      3: <StepPhone vm={vm} />,
     };
     content = steps[vm.step] ?? <p className={styles.state}>Próxima etapa em desenvolvimento…</p>;
   }
