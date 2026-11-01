@@ -4,7 +4,7 @@ import StepCpf from '../../steps/StepCpf';
 import StepName from '../../steps/StepName';
 import StepPhone from '../../steps/StepPhone';
 import StepConfirmed from '../../steps/StepConfirmed';
-import Card from '../../components/Card';
+import Card from '../../components/Card/Card';
 import styles from './RegistrationPage.module.css';
 
 export default function RegistrationPage() {

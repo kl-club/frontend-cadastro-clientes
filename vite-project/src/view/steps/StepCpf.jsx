@@ -1,10 +1,10 @@
-import AppBar from '../components/AppBar';
-import BrandLogo from '../components/BrandLogo';
-import Button from '../components/Button';
-import Card from '../components/Card';
-import Field from '../components/Field';
-import Icon from '../components/Icon';
-import Stepper from '../components/Stepper';
+import AppBar from '../components/AppBar/AppBar';
+import BrandLogo from '../components/BrandLogo/BrandLogo';
+import Button from '../components/Button/Button';
+import Card from '../components/Card/Card';
+import Field from '../components/Field/Field';
+import Icon from '../components/Icon/Icon';
+import Stepper from '../components/Stepper/Stepper';
 import styles from './Steps.module.css';
 
 export default function StepCpf({ vm, onExit }) {

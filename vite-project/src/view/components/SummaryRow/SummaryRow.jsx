@@ -1,4 +1,4 @@
-import Icon from './Icon';
+import Icon from '../Icon/Icon';
 import styles from './SummaryRow.module.css';
 
 /** Linha de dado validado. Com onChange mostra "Alterar"; sem, mostra o check. */

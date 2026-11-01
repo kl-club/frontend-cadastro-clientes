@@ -1,5 +1,5 @@
 import { useId } from 'react';
-import Icon from './Icon';
+import Icon from '../Icon/Icon';
 import styles from './Field.module.css';
 
 export default function Field({ label, side, icon, hint, error, onClear, ...inputProps }) {
