@@ -1,10 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { userService } from '../model/services/userService';
 import { qrSessionService } from '../model/services/qrSessionService';
-import {
-  formatCpf, formatPhone, isValidCpf, isValidName, isValidPhone,
-  maskCpf, maskPhone, onlyDigits,
-} from '../model/entities/user';
+import { formatCpf, formatPhone, isValidCpf, isValidName, isValidPhone, maskCpf, maskPhone, onlyDigits,} from '../model/entities/user';
 
 export const TOTAL_STEPS = 4;
 
