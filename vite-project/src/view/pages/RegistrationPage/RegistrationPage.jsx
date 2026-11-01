@@ -3,6 +3,7 @@ import { useRegistrationViewModel } from '../../../viewmodel/useRegistrationView
 import StepCpf from '../../steps/StepCpf';
 import StepName from '../../steps/StepName';
 import StepPhone from '../../steps/StepPhone';
+import StepConfirmed from '../../steps/StepConfirmed';
 import Card from '../../components/Card';
 import styles from './RegistrationPage.module.css';
 
@@ -31,8 +32,9 @@ export default function RegistrationPage() {
       1: <StepCpf vm={vm} onExit={exit} />,
       2: <StepName vm={vm} />,
       3: <StepPhone vm={vm} />,
+      4: <StepConfirmed vm={vm} onExit={exit} />,
     };
-    content = steps[vm.step] ?? <p className={styles.state}>Próxima etapa em desenvolvimento…</p>;
+    content = steps[vm.step];
   }
 
   return (
