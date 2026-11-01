@@ -1,6 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import { useRegistrationViewModel } from '../../../viewmodel/useRegistrationViewModel';
 import StepCpf from '../../steps/StepCpf';
+import StepName from '../../steps/StepName';
 import Card from '../../components/Card';
 import styles from './RegistrationPage.module.css';
 
@@ -27,6 +28,7 @@ export default function RegistrationPage() {
   } else {
     const steps = {
       1: <StepCpf vm={vm} onExit={exit} />,
+      2: <StepName vm={vm} />,
     };
     content = steps[vm.step] ?? <p className={styles.state}>Próxima etapa em desenvolvimento…</p>;
   }
