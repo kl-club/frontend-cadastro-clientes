@@ -1,0 +1,7 @@
+{
+  "qrSessions": [
+    { "id": 1, "token": "kl-demo-123", "origin": "Loja Centro", "active": true },
+    { "id": 2, "token": "kl-expirado", "origin": "Loja Shopping", "active": false }
+  ],
+  "users": []
+}
