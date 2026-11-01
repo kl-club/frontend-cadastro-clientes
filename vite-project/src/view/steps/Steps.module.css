@@ -2,6 +2,7 @@
 .form { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
 .title { margin: 0; font-size: clamp(1.25rem, 5vw, 1.5rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; }
 .sub { margin: 2px 0 0; font-size: 0.82rem; color: var(--muted); }
+.eyebrow { margin: 0 0 4px; font-size: 0.68rem; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 0.04em; }
 .titleRow { display: flex; gap: 12px; align-items: flex-start; }
 .titleIcon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: #e3efe6; color: var(--green-800); flex-shrink: 0; }
 .welcome { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: var(--radius); background: linear-gradient(135deg, #e4efe3, #f1f7ee); }
