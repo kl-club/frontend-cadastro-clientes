@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
+    "preapi": "node -e \"const fs=require('fs');fs.existsSync('db.json')||fs.copyFileSync('db.example.json','db.json')\"",
     "api": "json-server --watch db.json --port 3001",
     "dev:all": "concurrently -k \"npm:api\" \"npm:dev\""
   },
