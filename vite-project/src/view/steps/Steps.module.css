@@ -6,6 +6,16 @@
 .eyebrow { margin: 0 0 4px; font-size: 0.68rem; font-weight: 700; color: var(--green-700); text-transform: uppercase; letter-spacing: 0.04em; }
 .titleRow { display: flex; gap: 12px; align-items: flex-start; }
 .titleIcon { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 10px; background: #e3efe6; color: var(--green-800); flex-shrink: 0; }
+
 .welcome { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: var(--radius); background: linear-gradient(135deg, #e4efe3, #f1f7ee); }
 .welcome small { display: block; font-size: 0.62rem; font-weight: 700; color: var(--green-700); margin-bottom: 4px; }
 .badge { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; background: #d7e8da; color: var(--green-800); }
+
+.active { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 99px; background: #d7ebdc; color: var(--green-800); font-size: 0.6rem; font-weight: 700; white-space: nowrap; }
+
+.done { display: grid; justify-items: center; text-align: center; gap: 6px; }
+.bigCheck { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 50%; background: var(--green-800); color: #fff; box-shadow: 0 0 0 6px #d7ebdc; margin-bottom: 8px; }
+.verified { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 12px; border-radius: 12px; background: #eaf3e8; }
+
+/* Empurra o botão final para o rodapé quando há espaço sobrando */
+.footer { margin-top: auto; padding-top: 12px; }
