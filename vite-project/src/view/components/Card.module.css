@@ -1,0 +1,1 @@
+.card { background: var(--surface); border-radius: var(--radius); padding: clamp(16px, 4vw, 24px); box-shadow: 0 1px 3px rgba(16, 60, 36, 0.08); display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
