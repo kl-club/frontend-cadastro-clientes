@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { userService } from '../model/services/userService';
 import { qrSessionService } from '../model/services/qrSessionService';
-import { formatCpf, isValidCpf, isValidName, maskCpf, onlyDigits } from '../model/entities/user';
+import {
+  formatCpf, formatPhone, isValidCpf, isValidName, isValidPhone,
+  maskCpf, maskPhone, onlyDigits,
+} from '../model/entities/user';
 
 export const TOTAL_STEPS = 4;
 
@@ -11,6 +14,7 @@ export function useRegistrationViewModel(qrToken) {
   const [user, setUser] = useState(null); // registro retornado pela API
   const [cpf, setCpf] = useState('');
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -33,6 +37,7 @@ export function useRegistrationViewModel(qrToken) {
   /* Handlers dos campos (aplicam máscara) */
   const onCpfChange = (v) => { setError(''); setCpf(formatCpf(v)); };
   const onNameChange = (v) => { setError(''); setName(v); };
+  const onPhoneChange = (v) => { setError(''); setPhone(formatPhone(v)); };
 
   /* Etapa 1 → cria (ou retoma) rascunho */
   const submitCpf = () => run(async () => {
@@ -53,25 +58,41 @@ export function useRegistrationViewModel(qrToken) {
     setStep(3);
   });
 
+  /* Etapa 3 → salva telefone e ativa o cadastro */
+  const submitPhone = () => run(async () => {
+    if (!isValidPhone(phone)) throw new Error('Celular inválido. Use DDD + 9 dígitos.');
+    setUser(await userService.update(user.id, {
+      ...user, phone: onlyDigits(phone), status: 'active', activatedAt: new Date().toISOString(),
+    }));
+    setStep(4);
+  });
+
   /* "Alterar" CPF → descarta o rascunho e volta ao início */
   const changeCpf = () => run(async () => {
     if (user?.id) await userService.remove(user.id);
-    setUser(null); setName('');
+    setUser(null); setName(''); setPhone('');
     setStep(1);
   });
 
   const goTo = (s) => { setError(''); setStep(s); };
   const back = () => (step === 2 ? changeCpf() : step > 1 && step < 4 && goTo(step - 1));
 
-  const summary = useMemo(() => ({ cpf: maskCpf(cpf), name: name.trim() }), [cpf, name]);
+  const summary = useMemo(() => ({
+    cpf: maskCpf(cpf), name: name.trim(), phone: maskPhone(phone),
+  }), [cpf, name, phone]);
 
   return {
-    session, step, user, loading, error,
-    values: { cpf, name },
+    session, step, loading, error,
+    values: { cpf, name, phone },
     summary,
-    canSubmit: { 1: onlyDigits(cpf).length === 11, 2: name.trim().length > 0 },
+    canSubmit: {
+      1: onlyDigits(cpf).length === 11,
+      2: name.trim().length > 0,
+      3: onlyDigits(phone).length === 11,
+    },
     actions: {
-      onCpfChange, onNameChange, submitCpf, submitName,
+      onCpfChange, onNameChange, onPhoneChange,
+      submitCpf, submitName, submitPhone,
       changeCpf, back, goTo,
       clearName: () => setName(''),
     },
